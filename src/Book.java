@@ -4,7 +4,7 @@ public class Book {
 
     public Book(String title, int pageCount) throws InvalidBookException {
 
-        if(title == null) {
+        if(title == null || title.equals("")) {
             throw new InvalidBookException("Title cannot be empty");
         }
         else {

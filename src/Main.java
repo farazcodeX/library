@@ -1,28 +1,115 @@
+import java.io.InvalidObjectException;
+
 public class Main {
     public static void main(String[] args) {
+
+
         Library library = new Library();
 
-        library.listBooks();
+       // lets suronde these exceptions with try-catch block
+        
+            try {
+                library.listBooks();
+            } catch (EmptyLibraryException e) {
+                
+                e.printStackTrace();
+            }
+      
+
+        
+        
 
         Book book1 = null;
         Book book2 = null;
         Book book3 = null;
         Book book4 = null;
+        
+            try {
+                book1 = new Book("Java Programming", 300);
+            } catch (InvalidBookException e) {
+               
+                e.printStackTrace();
+            }
+            try {
+                book2 = new Book("Design Patterns", -3);
+            } catch (InvalidBookException e) {
+                
+                e.printStackTrace();
+            }
+            try {
+                book3 = new Book(null, 100);
+            } catch (InvalidBookException e) {
+                
+                e.printStackTrace();
+            }
+            try {
+                book4 = new Book("", 400);
+            } catch (InvalidBookException e) {
+              
+                e.printStackTrace();
+            }
+       
+        
 
-        book1 = new Book("Java Programming", 300);
-        book2 = new Book("Design Patterns", -3);
-        book3 = new Book(null, 100);
-        book4 = new Book("", 400);
+        try {
+            library.addBook(book1);
+        } catch (InvalidObjectException e) {
+           
+            e.printStackTrace();
+        }
+        try {
+            library.addBook(book2);
+        } catch (InvalidObjectException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        try {
+            library.addBook(book3);
+        } catch (InvalidObjectException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        try {
+            library.addBook(book4);
+        } catch (InvalidObjectException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
 
-        library.addBook(book1);
-        library.addBook(book2);
-        library.addBook(book3);
-        library.addBook(book4);
+        try {
+            library.listBooks();
+        } catch (EmptyLibraryException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
 
-        library.listBooks();
+        try {
+            library.borrowBook("Java Programming");
+        } catch (EmptyLibraryException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (BookNotFoundException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        try {
+            library.returnBook("Clean Code");
+        } catch (BookNotFoundException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        try {
+            library.returnBook("Java Programming");
+        } catch (BookNotFoundException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
 
-        library.borrowBook("Java Programming");
-        library.returnBook("Clean Code");
-        library.returnBook("Java Programming");
+        try {
+            library.listBooks();
+        } catch (EmptyLibraryException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
     }
 }
