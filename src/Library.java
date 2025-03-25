@@ -85,10 +85,15 @@ public class Library {
     public void listBooks() throws EmptyLibraryException {
 
         System.out.println("------------------------------");
-        if(books == null) {
+        
+        System.out.println();
+        // null is not good for array list and all arrays 
+        // is empty is better و آره من اینو نوشتم
+        if(books.isEmpty()) {
             throw new EmptyLibraryException("Library is empty");
         }
         else {
+            System.out.println("all Books : ");
             for(int i = 0; i < books.size(); ++i) {
                 if(i != 0) {
                     System.out.println("---------------------------------");
