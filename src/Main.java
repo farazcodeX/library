@@ -11,7 +11,8 @@ public class Main {
             try {
                 library.listBooks();
             } catch (EmptyLibraryException e) {
-                
+                // i use this method to print issue and i think this way more better than 
+                // دستی writing 
                 e.printStackTrace();
             }
       
@@ -60,55 +61,55 @@ public class Main {
         try {
             library.addBook(book2);
         } catch (InvalidObjectException e) {
-            // TODO Auto-generated catch block
+            
             e.printStackTrace();
         }
         try {
             library.addBook(book3);
         } catch (InvalidObjectException e) {
-            // TODO Auto-generated catch block
+            
             e.printStackTrace();
         }
         try {
             library.addBook(book4);
         } catch (InvalidObjectException e) {
-            // TODO Auto-generated catch block
+
             e.printStackTrace();
         }
 
         try {
             library.listBooks();
         } catch (EmptyLibraryException e) {
-            // TODO Auto-generated catch block
+        
             e.printStackTrace();
         }
 
         try {
             library.borrowBook("Java Programming");
         } catch (EmptyLibraryException e) {
-            // TODO Auto-generated catch block
+            
             e.printStackTrace();
         } catch (BookNotFoundException e) {
-            // TODO Auto-generated catch block
+            
             e.printStackTrace();
         }
         try {
             library.returnBook("Clean Code");
         } catch (BookNotFoundException e) {
-            // TODO Auto-generated catch block
+            
             e.printStackTrace();
         }
         try {
             library.returnBook("Java Programming");
         } catch (BookNotFoundException e) {
-            // TODO Auto-generated catch block
+            
             e.printStackTrace();
         }
 
         try {
             library.listBooks();
         } catch (EmptyLibraryException e) {
-            // TODO Auto-generated catch block
+            
             e.printStackTrace();
         }
     }
